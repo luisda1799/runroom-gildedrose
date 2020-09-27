@@ -21,10 +21,10 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run tests
-      run: ./vendor/bin/phpunit tests
+      run: cd gildedrose && ./vendor/bin/phpunit tests
     
     - name: Run PHPStan
-      run: ./vendor/bin/phpstan analyse src tests
+      run: cd gildedrose && ./vendor/bin/phpstan analyse src tests
     
     - name: Run Psalm
-      run: ./vendor/bin/psalm
+      run: cd gildedrose && ./vendor/bin/psalm
