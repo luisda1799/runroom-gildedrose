@@ -1,0 +1,16 @@
+
+version: '3.7'
+
+services: 
+
+  apache:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./gildedrose
+    ports:
+      - 8080:80
+    container_name: gildedrose-apache
+    environment:
+      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9000 remote_enable=1
+    volumes:
+      - "./gildedrose:/var/www/html"
