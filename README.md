@@ -1,3 +1,21 @@
+# Primer despliegue
+
+Tendremos que tener instalado docker y cualquier IDE de desarrollo PHP, recomendamos vscode
+
+`git clone https://github.com/luisda1799/runroom-gildedrose.git .`
+
+`docker-compose -f "docker-compose.yml" up -d --build`
+
+`composer install`
+
+# Configuración XDEBUG en vscode
+
+- Instalamos la extensión PHP Debug
+
+- Abrimos la configuración desde el menú princiapl Run -> Open Configurations
+
+- Añadimos la configuración que aparece en el fichero .vscode/launch.json
+
 # Backend Developer Test
 
 ## Objetivo
