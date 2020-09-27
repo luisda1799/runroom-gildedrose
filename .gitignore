@@ -3,3 +3,4 @@ vendor
 
 phpunit.xml
 composer.lock
+gildedrose/.php_cs.cache
