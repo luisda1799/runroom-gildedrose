@@ -1,0 +1,34 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      if: steps.composer-cache.outputs.cache-hit != 'true'
+      run: cd gildedrose && composer install
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    - name: Run tests
+      run: cd gildedrose && ./vendor/bin/phpunit tests
+    
+    - name: Run PHPStan
+      run: cd gildedrose && ./vendor/bin/phpstan analyse src tests
+    
+    - name: Run Psalm
+      run: cd gildedrose && ./vendor/bin/psalm
+
+    - name: Run PHP-cs-fixer
+      run: cd gildedrose && ./vendor/bin/php-cs-fixer fix .
+    
