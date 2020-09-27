@@ -28,3 +28,7 @@ jobs:
     
     - name: Run Psalm
       run: cd gildedrose && ./vendor/bin/psalm
+
+    - name: Run PHP-cs-fixer
+      run: cd gildedrose && ./vendor/bin/php-cs-fixer fix .
+    
